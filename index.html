@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Scheduler</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Task Scheduler</h1>
+      <div class="header-actions">
+        <button id="theme-toggle" class="btn secondary">Toggle Theme</button>
+      </div>
+    </header>
+
+    <main class="dashboard">
+      <section class="card">
+        <h2>Add / Update Task</h2>
+        <form id="task-form" class="form-grid">
+          <input type="hidden" id="task-id">
+          <label>
+            Title
+            <input type="text" id="title" required placeholder="e.g. Prepare report">
+          </label>
+          <label>
+            Priority
+            <select id="priority" required>
+              <option value="3">High</option>
+              <option value="2">Medium</option>
+              <option value="1">Low</option>
+            </select>
+          </label>
+          <label>
+            Deadline
+            <input type="date" id="deadline" required>
+          </label>
+          <button type="submit" class="btn">Save Task</button>
+          <button type="button" id="cancel-edit" class="btn secondary hidden">Cancel Edit</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Task Controls</h2>
+        <div class="controls">
+          <button id="sort-priority" class="btn">Sort by Priority</button>
+          <button id="sort-deadline" class="btn">Sort by Deadline</button>
+          <button id="priority-view" class="btn">Priority Queue View</button>
+          <button id="queue-view" class="btn">Execution Queue View</button>
+          <button id="undo-delete" class="btn secondary">Undo Delete (Stack)</button>
+        </div>
+        <div class="search-bar">
+          <input type="text" id="search-input" placeholder="Search by title...">
+          <button id="search-btn" class="btn">Search</button>
+          <button id="clear-search" class="btn secondary">Clear</button>
+        </div>
+        <p id="status" class="status"></p>
+      </section>
+
+      <section class="card">
+        <h2>Tasks (Array + Linked List Source)</h2>
+        <ul id="task-list" class="task-list"></ul>
+      </section>
+
+      <section class="grid-two">
+        <article class="card">
+          <h2>Stack (Deleted Tasks)</h2>
+          <ul id="stack-list" class="mini-list"></ul>
+        </article>
+        <article class="card">
+          <h2>Queue (FIFO Execution)</h2>
+          <ul id="queue-list" class="mini-list"></ul>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
